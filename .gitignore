@@ -1,0 +1,7 @@
+# ADD Workspace (Ephemeral thoughts and logs)
+.add/workspace/
+
+# その他、標準的な除外
+node_modules/
+vendor/
+.env
