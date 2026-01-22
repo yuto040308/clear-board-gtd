@@ -1,0 +1,13 @@
+{
+    "name": "ADD_Agent_Skill",
+    "description": "Assisted Driven Development protocol",
+    "version": "1.0.0",
+    "language": "Japanese",
+    "workflow_steps": [
+        "Load core/manifest.md and memory/",
+        "Initialize workspace using templates/task_blueprint/",
+        "Define macro roadmap in phase.md",
+        "Execute micro TDD cycles in steps.md",
+        "Capture feedback for core evolution"
+    ]
+}
