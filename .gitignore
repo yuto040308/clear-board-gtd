@@ -1,7 +1,28 @@
 # ADD Workspace (Ephemeral thoughts and logs)
 .add/workspace/
 
-# その他、標準的な除外
+# Dependency directories
 node_modules/
-vendor/
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Environment variables
 .env
+.env*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
