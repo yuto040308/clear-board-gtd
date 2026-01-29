@@ -2,19 +2,16 @@
 'use client';
 
 import { useState } from 'react';
-import axios from 'axios';
+import { HelloGetApi } from '../api/hello/HelloGetApi';
 
 export default function ApiCheckButton() {
     const [clientMessage, setClientMessage] = useState<string>('');
 
     const checkApi = () => {
         setClientMessage('Loading...');
-        axios.get('http://localhost:8080/api/hello')
-            .then(res => setClientMessage(res.data.message))
-            .catch(error => {
-                console.error(error);
-                setClientMessage('Error fetching data');
-            });
+        HelloGetApi()
+            .then(message => setClientMessage(message))
+            .catch(() => setClientMessage('Error fetching data'));
     };
 
     return (
