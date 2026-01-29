@@ -26,3 +26,8 @@ jobs:
           CONFIG.MODEL: "gemini/gemini-2.0-flash"
           CONFIG.MODEL_TURBO: "gemini/gemini-2.0-flash"
           PR_AGENT.CONFIG.LANGUAGE: "japanese"
+ 
+          # describe: PRの説明文を自動生成
+          # review: コードレビューを実行
+          # improve: 設計の改善提案を表示
+          GITHUB_ACTION.PR_ACTIONS: '["describe", "review", "improve"]'
