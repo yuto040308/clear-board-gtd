@@ -20,7 +20,9 @@ jobs:
         id: pr_agent
         uses: Codium-ai/pr-agent@main
         env:
+          GOOGLE_AI_STUDIO.GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENAI_KEY: ${{ secrets.GEMINI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CONFIG.MODEL: "gemini/gemini-2.0-flash"
           CONFIG.MODEL_TURBO: "gemini/gemini-2.0-flash"
+          PR_AGENT.CONFIG.LANGUAGE: "japanese"
