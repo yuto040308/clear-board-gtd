@@ -18,7 +18,7 @@ jobs:
     name: Run PR Agent
     steps:
       - name: PR Agent action
-        uses: qodo-ai/pr-agent-action@main # 2026年現在はqodo-aiブランドが標準
+        uses: Codium-ai/pr-agent-action@main
         env:
           # 1. 認証設定
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
