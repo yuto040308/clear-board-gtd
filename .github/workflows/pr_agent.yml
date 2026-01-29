@@ -18,6 +18,7 @@ jobs:
     name: Run PR Agent
     steps:
       - name: PR Agent action
+        id: pr_agent
         uses: Codium-ai/pr-agent-action@main
         env:
           # 1. 認証設定
