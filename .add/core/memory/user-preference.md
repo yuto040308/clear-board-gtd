@@ -9,3 +9,12 @@
 ## 技術スタック別の好み
 - **Laravel**: Controllerは薄く、ビジネスロジックはServiceまたはActionクラスへ。
 - **TypeScript**: 型推論に頼りすぎず、関数の境界（引数と戻り値）には明示的に型を付ける。
+
+## インフラ・CI/CD
+- **GitHub Actions**:
+  - ファイル名はシンプルにする (例: `clearboard-backend-test.yml` ではなく `phpunit.yml` preferred)。
+  - `name` フィールドもシンプルに (例: `Run PHPUnit`)。
+  - セキュリティへの配慮: CI環境であっても `chmod 777` は避け、`775` などを採用する推奨がある場合はそれを受け入れる。
+
+## ドキュメンテーション
+- **README**: 新しい機能やコマンドを追加した際は、必ずREADMEの使用方法セクションも更新する。
