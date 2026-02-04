@@ -80,3 +80,8 @@ docker-compose logs -f backend    # バックエンドのみ
 docker-compose exec frontend sh   # Frontend
 docker-compose exec backend bash  # Backend
 ```
+
+### テスト実行 (PHPUnit)
+```bash
+docker-compose exec backend php artisan test
+```
