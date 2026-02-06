@@ -1,0 +1,45 @@
+name: PHPCS Auto-Review
+
+on: [pull_request]
+
+jobs:
+  phpcs-check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read       # コードを読む権限を追加
+      pull-requests: write # PRにコメントするために書き込み権限も追加
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          tools: composer:v2
+
+      - name: Install Dependencies
+        working-directory: ./backend
+        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+      # まず phpcbf を実行して、CI上のファイルを「自動修正」します。
+      # (|| true をつけるのは、修正箇所があってもエラーで止めないため)
+      # backendディレクトリで実行するように調整
+      - name: Run phpcbf
+        working-directory: ./backend
+        run: vendor/bin/phpcbf --standard=phpcs.xml || true
+
+      # Reviewdogが「変更されたファイル」を検知して、
+      # それを「提案コメント」としてPRに書き込みます。
+      # working-directory指定ではなく、ルートからパス指定で変更を検知させる必要がありますが
+      # 基本的に git diff で検知するため、ファイルが書き換わっていればOKです。
+      - name: Suggest changes (Reviewdog)
+        uses: reviewdog/action-suggester@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tool_name: phpcbf
+
+      # 最後に改めて phpcs を実行し、修正しきれていないエラーがあればCIを失敗させます。
+      - name: Check for remaining violations
+        working-directory: ./backend
+        run: vendor/bin/phpcs --standard=phpcs.xml
