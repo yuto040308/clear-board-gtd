@@ -83,5 +83,18 @@ docker-compose exec backend bash  # Backend
 
 ### テスト実行 (PHPUnit)
 ```bash
-docker-compose exec backend php artisan test
+docker-compose exec backend composer test
+```
+> Unit Test と同時に、Lint (静的コード解析) も実行されます。
+
+### コード規約チェック (PHPCS)
+```bash
+# チェックのみ実行
+docker-compose exec backend composer lint
+```
+
+### コード自動修正 (PHPCBF)
+```bash
+# 自動修正を適用
+docker-compose exec backend composer fix
 ```
