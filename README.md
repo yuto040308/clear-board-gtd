@@ -83,5 +83,28 @@ docker-compose exec backend bash  # Backend
 
 ### テスト実行 (PHPUnit)
 ```bash
-docker-compose exec backend php artisan test
+docker-compose exec backend composer test
 ```
+> Unit Test と同時に、Lint (静的コード解析) も実行されます。
+
+### コード規約チェック (PHPCS)
+```bash
+# チェックのみ実行
+docker-compose exec backend composer lint
+```
+
+### コード自動修正 (PHPCBF)
+```bash
+# 自動修正を適用
+docker-compose exec backend composer fix
+```
+
+### GitHub 上での自動修正 (CI)
+![PHPCS Workflow](./docs/images/ci-workflow.png)
+
+Pull Request を作成すると、自動的にコード規約チェックが走ります。
+規約違反があり、かつ自動修正可能なものについては **ReviewDog** が自動で修正案（Suggestion）をコメントします。
+
+1. PR の "Files changed" タブ、または "Conversation" タブを確認します。
+2. ReviewDog からのコメントにある **「Commit suggestion」** ボタンを押します。
+3. 自動的に修正コミットが取り込まれ、CI が再実行されます（修正されれば Green になります）。

@@ -10,6 +10,9 @@
    - [ ] (例: 〇〇モデルの永続化処理)
 3. **Layer 3: 最上位（Controller/Action/UI等）**
    - [ ] (例: APIエンドポイントの実装)
+4. **Phase Final: 昇華 (Learning)**
+   - [ ] `feedback.md` を作成し、良かった点・改善点をまとめる
+   - [ ] workspace のログを分析し、ユーザーの癖やドメインルールを抽出して `core/memory/` を更新する
 
 ## 🛠️ 技術的な留意点
 - 参照すべき `core/skills/` の項目

@@ -8,6 +8,6 @@ class HelloController extends Controller
 {
     public function index()
     {
-        return response()->json(['message' => 'Hello from Laravel!']);
+        return response()->json([ 'message' => 'Hello from Laravel!' ]) ;
     }
 }

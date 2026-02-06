@@ -8,7 +8,7 @@ AIエージェントは、以下の日本語コマンドを受けた際、それ
   1. `.add/core/templates/task_blueprint/` を `workspace/YYYY-MM-DD-{{タスク名}}` として丸ごとコピーせよ。
   2. `00_lake/lake.md` に現在の依頼内容を整理して記述せよ。
 
-### 2. 【設計（Phase）して】 (Phase Design)
+### 2. 【設計して】 (Phase Design)
 - **内容**: Lakeを分析し、ボトムアップ実装のロードマップを作成する。
 - **動作**: 
   1. `core/templates/phase.md` を使い、`01_phases/phase.md` に全体計画を記述せよ。
