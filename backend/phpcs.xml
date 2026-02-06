@@ -29,4 +29,9 @@
     
     <!-- チェック対象の拡張子 -->
     <arg name="extensions" value="php"/>
+
+    <!-- テストファイルではメソッド名のキャメルケース強制を除外 -->
+    <rule ref="PSR1.Methods.CamelCapsMethodName">
+        <exclude-pattern>*/tests/*</exclude-pattern>
+    </rule>
 </ruleset>
