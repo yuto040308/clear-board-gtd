@@ -9,4 +9,6 @@
 
 # Phase 4 可変値を返すAPIを作成
 
-# Phase Final ADDに活用できるフィードバックを履歴から作成
+# Phase Final: 昇華 (Learning)
+- **内容**: 知見を Core に反映し、AIを自分専用に成長させる。
+- **動作**: `workspace` のログを分析し、ユーザーの癖やドメインルールを抽出して `core/memory/` を更新せよ。
